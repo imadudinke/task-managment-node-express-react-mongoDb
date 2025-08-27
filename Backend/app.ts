@@ -16,7 +16,7 @@ const startServer = async () => {
     cors({
       origin: [
         "http://localhost:5173",
-        "https://task-managment-node-express-react-m.vercel.app/",
+        "https://task-managment-node-express-react-m.vercel.app",
       ],
       credentials: true,
     })

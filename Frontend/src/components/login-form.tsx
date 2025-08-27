@@ -11,8 +11,8 @@ export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
-  const [email, setEmail] = useState("imad@imad.com");
-  const [password, setPassword] = useState("12345623");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const { setIsLoading } = useUserData();
   const navigate = useNavigate();
   const apiUrl = import.meta.env.VITE_API_URL;
