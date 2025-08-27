@@ -24,7 +24,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "ts-node-dev app.ts",
-    "start": "node dist/app.js"
+    "start": "node dist/app.ts"
   },
   "keywords": [],
   "author": "",
