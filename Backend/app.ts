@@ -7,7 +7,7 @@ import cookieParser from "cookie-parser";
 dotenv.config();
 const app = Express();
 app.use(Express.json());
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 const startServer = async () => {
   console.log("starting server...");
   await connectDB();
