@@ -11,8 +11,16 @@ const PORT = process.env.PORT || 5000;
 const startServer = async () => {
   console.log("starting server...");
   await connectDB();
-
-  app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+  // task-managment-node-express-react-m.vercel.app
+  app.use(
+    cors({
+      origin: [
+        "http://localhost:5173",
+        "https://task-managment-node-express-react-m.vercel.app/",
+      ],
+      credentials: true,
+    })
+  );
   app.use(cookieParser());
   app.use("/", route);
 
