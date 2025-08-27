@@ -12,15 +12,23 @@ const startServer = async () => {
   console.log("starting server...");
   await connectDB();
   // task-managment-node-express-react-m.vercel.app
+
+  const allowedOrigins = [
+    "https://task-managment-node-express-react-m.vercel.app",
+    "http://localhost:5173",
+  ];
   app.use(
     cors({
-      origin: [
-        "http://localhost:5173",
-        "https://task-managment-node-express-react-m.vercel.app",
-      ],
-      credentials: true,
+      origin: function (origin, callback) {
+        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+          callback(null, true);
+        } else {
+          callback(new Error("Not allowed by CORS"));
+        }
+      },
     })
   );
+
   app.use(cookieParser());
   app.use("/", route);
 
