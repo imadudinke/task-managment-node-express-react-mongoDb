@@ -26,6 +26,7 @@ const startServer = async () => {
           callback(new Error("Not allowed by CORS"));
         }
       },
+      credentials: true,
     })
   );
 
