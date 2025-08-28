@@ -54,10 +54,10 @@ export const loginUser = async (req: Request, res: Response) => {
         { expiresIn: "1h" }
       );
       res.cookie("token", token, {
-        httpOnly: true, // 🔒 Prevents JavaScript access
-        // secure: false,
-        // sameSite: "lax", // 🔒 Prevent CSRF
-        // maxAge: 60 * 60 * 1000, // 1 hour
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "lax",
+        maxAge: 60 * 60 * 1000,
       });
       return res.status(200).json({
         message: "Login successful",
